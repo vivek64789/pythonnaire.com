@@ -1,0 +1,14 @@
+CREATE TABLE course( course_id int PRIMARY KEY, course_name varchar(30))
+CREATE TABLE batch( batch_id int PRIMARY KEY, batch_no varchar(20), batch_intake varchar(20))
+CREATE TABLE registration( id int PRIMARY KEY, username varchar(20), email varchar(40), pass varchar(100), f_name varchar(20), l_name varchar(20), reg_as varchar(20), course_id int, batch_id int, FOREIGN KEY (course_id) REFERENCES course(course_id), FOREIGN KEY (batch_id) REFERENCES batch(batch_id))
+SELECT * FROM `registration`
+CREATE TABLE user_type( user_id int PRIMARY KEY, user_type varchar(20))
+drop table registration
+CREATE TABLE registration( id int PRIMARY KEY, username varchar(20), email varchar(40), pass varchar(100), f_name varchar(20), l_name varchar(20), reg_as varchar(20), course_id int, batch_id int, FOREIGN KEY (course_id) REFERENCES course(course_id), FOREIGN KEY (batch_id) REFERENCES batch(batch_id))
+drop TABLE registration
+CREATE TABLE registration( id int PRIMARY KEY, username varchar(20), email varchar(40), pass varchar(100), f_name varchar(20), l_name varchar(20), reg_as int, course_id int, batch_id int, FOREIGN KEY (course_id) REFERENCES course(course_id), FOREIGN KEY (batch_id) REFERENCES batch(batch_id), FOREIGN KEY (reg_as) REFERENCES user_type(user_id))
+SELECT * FROM `user_type
+
+
+
+query = "select * from students where f_name LIKE '%" + str(self.search_in_date_entry.get()) + "%'  AND reg_date between %s and %s OR email LIKE '%" + str(self.search_in_date_entry.get()) + "%' AND reg_date between %s and %s"
